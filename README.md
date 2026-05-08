@@ -1,84 +1,153 @@
-# ⚡ ProjectFlow — Mini Project Management System
+# ⚡ ProjectFlow — Project Management System
 
-A full-stack project management application built with **Node.js + Express + MongoDB** (backend) and **Vite + React** (frontend).
+A modern full-stack **Project Management Application** built with **React + Node.js + Express + MongoDB**, designed to help teams and individuals manage projects, organize tasks, track progress, and streamline workflows efficiently.
 
----
+ProjectFlow includes:
 
-## 🚀 Features
-
-### Backend
-
-- ✅ JWT-based authentication (register / login)
-- ✅ Password hashing with bcrypt
-- ✅ Full CRUD for Projects
-- ✅ Full CRUD for Tasks per project
-- ✅ Pagination & status filtering on tasks
-- ✅ Centralized error handling
-- ✅ Input validation with express-validator
-
-### Frontend
-
-- ✅ Login & Register pages with form validation
-- ✅ Dashboard with all projects (card grid view)
-- ✅ Create / Edit / Delete projects
-- ✅ Open project → view & manage tasks
-- ✅ Add / Edit / Delete tasks
-- ✅ Change task status inline (dropdown)
-- ✅ Filter tasks by status
-- ✅ Pagination for tasks
-- ✅ Context API for global state
-- ✅ Toast notifications
-- ✅ Responsive dark UI
-- ✅ Docker support
+* 🔐 Secure JWT Authentication
+* 📁 Project & Task Management
+* 📊 Task Filtering & Pagination
+* 🌙 Responsive Dark UI
+* ⚡ Real-time User Experience
+* 🐳 Docker Support
 
 ---
 
-## 🗂️ Folder Structure
+# 🚀 Live Demo
 
-```
+🌐 Live:
+[ProjectFlow Frontend](https://project-flow-prototype.vercel.app/)
+
+💻 GitHub Repository:
+[ProjectFlow GitHub Repo](https://github.com/nikku1229/ProjectFlow)
+
+---
+
+# 📌 Features
+
+## 🔐 Authentication System
+
+* User Registration & Login
+* JWT-based Authentication
+* Secure Password Hashing with bcrypt
+* Persistent User Sessions
+* Protected API Routes
+
+---
+
+## 📁 Project Management
+
+* Create new projects
+* Edit project details
+* Delete projects
+* View all projects in dashboard grid layout
+* Project-specific task organization
+
+---
+
+## ✅ Task Management
+
+* Add, edit, and delete tasks
+* Inline task status updates
+* Task priority levels:
+
+  * Low
+  * Medium
+  * High
+* Task status filtering:
+
+  * Todo
+  * In Progress
+  * Completed
+* Paginated task management
+
+---
+
+## 🎨 UI/UX Features
+
+* Responsive dark-themed interface
+* Toast notifications
+* Smooth dashboard workflow
+* Reusable component architecture
+* Modern card-based layouts
+
+---
+
+## ⚙️ Developer Features
+
+* Docker & Docker Compose support
+* RESTful API architecture
+* Modular backend structure
+* API service layer on frontend
+* Context API state management
+
+---
+
+# 🛠️ Tech Stack
+
+| Layer          | Technology                    |
+| -------------- | ----------------------------- |
+| Frontend       | React 18, Vite, Context API   |
+| Backend        | Node.js, Express.js           |
+| Database       | MongoDB, Mongoose             |
+| Authentication | JWT, bcryptjs                 |
+| Validation     | express-validator             |
+| DevOps         | Docker, Docker Compose, Nginx |
+
+---
+
+# 📂 Project Structure
+
+```bash
 project-management/
-|
+│
 ├── backend/
 │   ├── src/
-│   │   ├── config/         # DB connection
-│   │   ├── controllers/    # Route logic
-│   │   ├── middleware/     # Auth + error handler
-│   │   ├── models/         # Mongoose schemas
-│   │   ├── routes/         # Express routers
-│   │   └── app.js          # Entry point
+│   │   ├── config/
+│   │   ├── controllers/
+│   │   ├── middleware/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   └── app.js
 │   └── package.json
-|
-|
+│
 ├── frontend/
 │   ├── src/
-│   │   ├── components/     # Modal, Navbar, Toast, etc.
-│   │   ├── context/        # AuthContext, ProjectContext
-│   │   ├── pages/          # Login, Register, Dashboard, ProjectDetail
-│   │   ├── services/       # API service layer
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── pages/
+│   │   ├── services/
 │   │   └── App.jsx
 │   └── package.json
-|
+│
 ├── ProjectFlow.postman_collection.json
 └── README.md
 ```
 
 ---
 
-## ⚙️ Local Setup (Without Docker)
+# ⚙️ Local Setup
 
-### Prerequisites
+## 📋 Prerequisites
 
-- Node.js v18+
-- MongoDB running locally (or MongoDB Atlas URI)
+Before running the project:
 
-### 1. Clone the repo
+* Node.js v18+
+* npm
+* MongoDB Local Database or MongoDB Atlas
+
+---
+
+# 📥 Clone Repository
 
 ```bash
 git clone https://github.com/nikku1229/ProjectFlow.git
-cd Project-Flow
+cd ProjectFlow
 ```
 
-### 2. Setup Backend
+---
+
+# 🔧 Backend Setup
 
 ```bash
 cd backend
@@ -86,9 +155,15 @@ npm install
 npm run dev
 ```
 
-Backend runs on: `http://localhost:5000`
+Backend runs on:
 
-### 3. Setup Frontend
+```bash
+http://localhost:5000
+```
+
+---
+
+# 🎨 Frontend Setup
 
 ```bash
 cd frontend
@@ -96,69 +171,35 @@ npm install
 npm run dev
 ```
 
-Frontend runs on: `http://localhost:5173`
+Frontend runs on:
+
+```bash
+http://localhost:5173
+```
 
 ---
 
-## 📡 API Reference
+# 🌐 Environment Variables
 
-### Auth
-
-| Method | Endpoint           | Description      | Auth |
-| ------ | ------------------ | ---------------- | ---- |
-| POST   | /api/auth/register | Register user    | ❌   |
-| POST   | /api/auth/login    | Login user       | ❌   |
-| GET    | /api/auth/me       | Get current user | ✅   |
-
-### Projects
-
-| Method | Endpoint          | Description            | Auth |
-| ------ | ----------------- | ---------------------- | ---- |
-| GET    | /api/projects     | Get all projects       | ✅   |
-| POST   | /api/projects     | Create project         | ✅   |
-| GET    | /api/projects/:id | Get single project     | ✅   |
-| PUT    | /api/projects/:id | Update project         | ✅   |
-| DELETE | /api/projects/:id | Delete project + tasks | ✅   |
-
-### Tasks
-
-| Method | Endpoint                                    | Description | Auth |
-| ------ | ------------------------------------------- | ----------- | ---- |
-| GET    | /api/projects/:pid/tasks?page=1&status=todo | Get tasks   | ✅   |
-| POST   | /api/projects/:pid/tasks                    | Add task    | ✅   |
-| PUT    | /api/projects/:pid/tasks/:tid               | Update task | ✅   |
-| DELETE | /api/projects/:pid/tasks/:tid               | Delete task | ✅   |
-
-### Query Params for Tasks
-
-- `page` — Page number (default: 1)
-- `limit` — Items per page (default: 10)
-- `status` — Filter by `todo` | `in-progress` | `completed`
-- `priority` — Filter by `low` | `medium` | `high`
-
----
-
-## 🧪 Postman Collection
-
-Import `ProjectFlow.postman_collection.json` into Postman.
-
-The collection auto-saves the JWT token and IDs after Register/Login/Create so you can run requests sequentially.
-
----
-
-## 🌐 Environment Variables
-
-### Backend `.env`
+## Backend `.env`
 
 ```env
 PORT=5000
-MONGO_URI=mongodb://localhost:27017/project-mgmt || mongodb://srv+url:your_atlas_url
+MONGO_URI=mongodb://localhost:27017/project-mgmt
 JWT_SECRET=your_super_secret_key
 JWT_EXPIRES_IN=7d
 NODE_ENV=development
 ```
 
-### Frontend `.env`
+For MongoDB Atlas:
+
+```env
+MONGO_URI=your_atlas_connection_string
+```
+
+---
+
+## Frontend `.env`
 
 ```env
 VITE_API_URL=http://localhost:5000/api
@@ -166,29 +207,163 @@ VITE_API_URL=http://localhost:5000/api
 
 ---
 
-## 🚀 Deploy
+# 🔌 API Reference
 
-### Render (Backend)
+# 🔐 Authentication
 
-Live Link: https://project-management-vgdw.onrender.com
-
-### Vercel (Frontend)
-
-Live Link: https://project-flow-prototype.vercel.app/
-
----
-
-## 🛠️ Tech Stack
-
-| Layer      | Technology                    |
-| ---------- | ----------------------------- |
-| Frontend   | React 18, Vite, Context API   |
-| Backend    | Node.js, Express.js           |
-| Database   | MongoDB, Mongoose             |
-| Auth       | JWT, bcryptjs                 |
-| Validation | express-validator             |
-| DevOps     | Docker, Docker Compose, Nginx |
+| Method | Endpoint             | Description      |
+| ------ | -------------------- | ---------------- |
+| POST   | `/api/auth/register` | Register User    |
+| POST   | `/api/auth/login`    | Login User       |
+| GET    | `/api/auth/me`       | Get Current User |
 
 ---
 
-Made with ❤️ — ProjectFlow
+# 📁 Projects
+
+| Method | Endpoint            | Description            |
+| ------ | ------------------- | ---------------------- |
+| GET    | `/api/projects`     | Get All Projects       |
+| POST   | `/api/projects`     | Create Project         |
+| GET    | `/api/projects/:id` | Get Single Project     |
+| PUT    | `/api/projects/:id` | Update Project         |
+| DELETE | `/api/projects/:id` | Delete Project & Tasks |
+
+---
+
+# ✅ Tasks
+
+| Method | Endpoint                        | Description |
+| ------ | ------------------------------- | ----------- |
+| GET    | `/api/projects/:pid/tasks`      | Get Tasks   |
+| POST   | `/api/projects/:pid/tasks`      | Create Task |
+| PUT    | `/api/projects/:pid/tasks/:tid` | Update Task |
+| DELETE | `/api/projects/:pid/tasks/:tid` | Delete Task |
+
+---
+
+# 🔎 Task Query Parameters
+
+```bash
+?page=1
+&limit=10
+&status=todo
+&priority=high
+```
+
+### Status Filters
+
+* `todo`
+* `in-progress`
+* `completed`
+
+### Priority Filters
+
+* `low`
+* `medium`
+* `high`
+
+---
+
+# 🧪 Postman Collection
+
+Import:
+
+```bash
+ProjectFlow.postman_collection.json
+```
+
+Features:
+
+* Auto-save JWT tokens
+* Auto-save project/task IDs
+* Sequential API testing workflow
+
+---
+
+# 🔐 Security Features
+
+* JWT Authentication
+* Password Hashing (bcrypt)
+* Protected Routes
+* Centralized Error Handling
+* Request Validation
+* Express Validator Middleware
+
+---
+
+# 📈 Performance & Architecture
+
+* Paginated task loading
+* Context-based global state
+* Modular backend architecture
+* Reusable frontend components
+* Optimized REST API structure
+
+---
+
+# 🐳 Docker Support
+
+Run with Docker:
+
+```bash
+docker-compose up --build
+```
+
+Includes:
+
+* Frontend
+* Backend
+* MongoDB
+* Nginx setup
+
+---
+
+# 🚀 Future Improvements
+
+* Real-time collaboration
+* Team workspaces
+* Activity timeline
+* File uploads
+* Comments on tasks
+* Drag & Drop Kanban board
+* Email notifications
+* Role-based permissions
+
+---
+
+# 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
+
+---
+
+# 👨‍💻 Author
+
+**Nitesh Sharma**
+
+* GitHub:
+  [GitHub Profile](https://github.com/nikku1229)
+
+* LinkedIn:
+  [LinkedIn Profile](https://www.linkedin.com/in/nitish-sharma-648a581b2)
+
+---
+
+# ⭐ Support
+
+If you like this project:
+
+⭐ Star the repository
+🔁 Share the project
+🤝 Contribute to development
+
+---
+
+# 🔥 Built for Efficient Project & Task Management
+
+ProjectFlow is designed to simplify workflows, improve productivity, and provide a clean modern experience for managing projects and tasks.
